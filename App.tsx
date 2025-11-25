@@ -1,6 +1,6 @@
 
 
-import React, { Component, useState, useEffect, ReactNode, ErrorInfo, useRef, useCallback } from 'react';
+import React, { Component, useState, useEffect, ReactNode, ErrorInfo, useCallback } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { Dashboard } from './components/Dashboard';
 import { POS } from './components/POS';
@@ -561,7 +561,7 @@ const AppContent: React.FC = () => {
       case 'MENU': return <MenuManager menuItems={menuItems} addMenuItem={addMenuItem} updateMenuItem={updateMenuItem} deleteMenuItem={deleteMenuItem} inventoryItems={inventoryItems} categoryConfigs={categoryConfigs} updateCategoryConfigs={updateCategoryConfigs} />;
       case 'TABLES': return <TableManager tables={tables} zones={zones} addTable={addTable} updateTable={updateTable} deleteTable={deleteTable} updateTableStatus={updateTableStatus} addZone={addZone} updateZone={updateZone} deleteZone={deleteZone} onOpenTableInPOS={handleOpenTableInPOS} />;
       case 'KITCHEN': return <KitchenMonitor orders={orders} updateOrderStatus={updateOrderStatus} tables={tables} sales={sales} inventory={inventoryItems} printerSettings={printerSettings} />;
-      case 'REPORTS': return <Reports sales={sales} tables={tables} zones={zones} users={users} currentUser={currentUser} deleteSale={deleteSale} updateSale={updateSale} />;
+      case 'REPORTS': return <Reports sales={sales} />;
       case 'EXPENSES': return <ExpensesManager expenses={expenses} addExpense={addExpense} updateExpense={updateExpense} deleteExpense={deleteExpense} categories={expenseCategories} saveCategories={saveExpenseCategories} />;
       case 'WHATSAPP': return <WhatsAppManager orders={orders.filter(o => (o.orderType === 'delivery' || o.orderType === 'to-go') && o.status !== 'completed' && o.status !== 'cancelled')} printerSettings={printerSettings}/>;
       case 'INVENTORY': return <InventoryManager inventoryItems={inventoryItems} addInventoryItem={addInventoryItem} updateInventoryItem={updateInventoryItem} adjustStock={adjustInventoryItemStock} />;
